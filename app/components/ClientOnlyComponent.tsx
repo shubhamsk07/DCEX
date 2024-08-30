@@ -16,7 +16,7 @@ const ClientOnlyComponent = ({ publicKey }: { publicKey: string }) => {
           // Send the public key back to the parent window
           window.opener.postMessage(
             { type: 'PUBLIC_KEY_RECEIVED', publicKey: publicKey },
-            'http://localhost:3001' // Ensure this is the correct origin of the parent
+            'https://custom-adapter.vercel.app' // Ensure this is the correct origin of the parent
           );
 
           // Close the popup window after sign-out
