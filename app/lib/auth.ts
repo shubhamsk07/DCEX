@@ -70,17 +70,13 @@ export const authConfig = {
                         profilePicture: profile?.picture,
                         provider: "Google",
                         sub: account.providerAccountId,
-                        solWallet: {
+                        SolWallet: {
                             create: {
                                 publicKey: publicKey,
                                 privateKey: privateKey.toString()
                             }
                         },
-                        inrWallet: {
-                            create: {
-                                balance: 0
-                            }
-                        }
+                        
                     }
                 })
 

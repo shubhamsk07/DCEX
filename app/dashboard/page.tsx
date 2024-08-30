@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { ProfileCard } from "../components/ProfileCard";
 import db from "@/app/db";
 import { authConfig } from "../lib/auth";
+import ClientOnlyComponent from "../components/ClientOnlyComponent";
 
 async function getUserWallet() {
     const session = await getServerSession(authConfig);
@@ -35,5 +36,6 @@ export default async function Dashboard() {
     return <div>
 
         <ProfileCard publicKey={userWallet.userWallet?.publicKey} />
+        <ClientOnlyComponent publicKey={userWallet.userWallet?.publicKey as string} />
     </div>
 }

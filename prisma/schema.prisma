@@ -20,19 +20,12 @@ model User {
   name            String?
   profilePicture  String?
   password        String?
-  solWalletId     String?
-  solWallet       SolWallet?
-  inrWalletId     String?
-  inrWallet       InrWalet?
+  SolWalletId     String?
+  SolWallet       SolWallet?
+  
   provider        Provider
 }
 
-model InrWalet {
-  id          String    @id  @default(uuid())  
-  balance     Int       
-  userId      String   @unique
-  user        User     @relation(fields: [userId], references: [id])
-}
 
 model SolWallet {
   id          String   @id  @default(uuid())
