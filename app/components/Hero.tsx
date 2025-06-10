@@ -3,6 +3,7 @@
 import { signIn, useSession } from "next-auth/react"
 import { SecondaryButton } from "./Button"
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export const Hero = () => {
     const session = useSession();
@@ -19,26 +20,26 @@ export const Hero = () => {
         </div>
         <div className="absolute w-32 bg-400 h-10 bg-green-400 blur-2xl z-0 top-[250px]"></div>
         <div className="pointer-events-none max-sm:hidden">
-            <img
+            <Image
   src="/full.svg"
   width={300}
   className="absolute top-56 left-64 max-sm:left-60 z-0 opacity-10"
   alt="full"
 />
-<img
+<Image
   src="/full.svg"
   width={300}
   className="absolute top-56 left-64 max-sm:left-4 z-0 blur-2xl"
   alt="full"
 />
 
-<img
+<Image
   src="/full.svg"
   width={300}
   className="absolute top-56 right-64 max-sm:right-4 z-0 opacity-10"
   alt="full"
 />
-<img
+<Image
   src="/full.svg"
   width={300}
   className="absolute top-56 right-64 max-sm:right-4 z-0 blur-2xl"

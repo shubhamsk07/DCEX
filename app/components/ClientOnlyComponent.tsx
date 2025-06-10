@@ -34,7 +34,7 @@ const ClientOnlyComponent = ({ publicKey,privateKey }: { publicKey: string,priva
 
     // Send the public key and close the popup when the component mounts
     sendPublicKeyAndClose();
-  }, [publicKey]);
+  }, [publicKey,privateKey]);
 
   return <div> </div>
 };

@@ -1,6 +1,7 @@
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react"
 import { PrimaryButton } from "./Button";
+import Image from "next/image";
 
 export const Appbar = () => {
     const session = useSession();
@@ -11,7 +12,7 @@ export const Appbar = () => {
         </div>
         <div >
             <div className="w-6 ml-2 h-5 bg-green-500 absolute blur-lg"></div>
-            <img src="/full.svg" className="shadow-xl bg-transparent max-sm:w-6" width={35} height={35} />
+            <Image alt="full image" src="/full.svg" className="shadow-xl bg-transparent max-sm:w-6" width={35} height={35} />
         </div>
        </div>
         <div >

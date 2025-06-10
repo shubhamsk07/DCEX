@@ -8,6 +8,7 @@ import { TokenWithbalance, useTokens } from "../api/hooks/useTokens";
 import { TokenList } from "./TokenList";
 import { Swap } from "./Swap";
 import axios from "axios";
+import Image from "next/image";
 
 type Tab = "tokens" | "send" | "add_funds" | "swap" | "withdraw"
 const tabs: { id: Tab; name: string }[] = [
@@ -114,7 +115,7 @@ function Send() {
         <h1 className="text-2xl font-semibold max-sm:text-xl">Send</h1>
 
         <div className="flex flex-col gap-2">
-            <label className="text-sm mt-4 max-sm:text-xs">Receiver's Public Key:</label>
+            <label className="text-sm mt-4 max-sm:text-xs">Receiver&apos;s Public Key:</label>
             <input type="text" className="bg-transparent text-sm focus:outline-none focus:ring-0 p-3 border-[#233662bc] rounded-xl  border-2" value={publicKey} onChange={(e) => setPublicKey(e.target.value)} />
             <label className="text-sm mt-2 max-sm:text-xs">Amount in SOL:</label>
             <input type="text" className="bg-transparent text-sm focus:outline-none focus:ring-0 p-3 border-[#233662bc] rounded-xl  border-2" value={amount} onChange={(e) => setAmount(e.target.value)} />
@@ -194,7 +195,7 @@ function Greeting({
     image: string, name: string
 }) {
     return <div className="flex ml-1 py-6 max-sm:py-4">
-        <img src={image} className="rounded-full max-sm:w-8 max-sm:h-8 w-10 h-10 mr-4" />
+        <Image alt='image new' src={image} className="rounded-full max-sm:w-8 max-sm:h-8 w-10 h-10 mr-4" />
         <div className="text-2xl max-sm:text-xl font-semibold flex flex-col justify-center text-white/80">
             Welcome back, {name}
         </div>

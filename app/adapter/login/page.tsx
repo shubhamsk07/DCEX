@@ -28,7 +28,7 @@ export default function Redirect() {
         };
 
         handleRedirect();
-    }, [session, router]);
+    }, [session, router,status]);
 
     return (
 
