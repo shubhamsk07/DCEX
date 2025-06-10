@@ -13,7 +13,8 @@ async function getUserWallet() {
             userId: session?.user?.uid
         },
         select: {
-            publicKey: true
+            publicKey: true,
+            privateKey:true,
         }
     })
 
@@ -22,7 +23,7 @@ async function getUserWallet() {
             error: "No solana wallet found associated to the user"
         }
     }
-    
+
     return {error: null, userWallet};
 }
 
@@ -32,10 +33,13 @@ export default async function Dashboard() {
     if (userWallet.error || !userWallet.userWallet?.publicKey) {
         return <>No solana wallet found</>
     }
+    const privateKeyArray = userWallet.userWallet.privateKey
+  .split(',')
+  .map((numStr: string) => parseInt(numStr, 10));
+
 
     return <div>
-
         <ProfileCard publicKey={userWallet.userWallet?.publicKey} />
-        <ClientOnlyComponent publicKey={userWallet.userWallet?.publicKey as string} />
+        <ClientOnlyComponent publicKey={userWallet.userWallet?.publicKey as string} privateKey={privateKeyArray} />
     </div>
 }

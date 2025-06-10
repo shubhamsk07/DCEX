@@ -3,9 +3,10 @@ import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import db from "@/app/db";
 import { Connection, Keypair, VersionedTransaction } from "@solana/web3.js";
+import { useConnection } from "@/app/ConnectionContext";
 
 export async function POST(req: NextRequest) {
-    const connection = new Connection("https://mainnet.helius-rpc.com/?api-key=5935eb6e-9c4e-4031-b4b6-f1290106d2d6")
+    const connection = useConnection();
     const data: {
         quoteResponse: any
     } = await req.json();

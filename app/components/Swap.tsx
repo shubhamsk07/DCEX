@@ -35,42 +35,42 @@ export function Swap({ publicKey, tokenBalances }: {
 
     }, [baseAsset, quoteAsset, baseAmount])
 
-    return <div className="p-12 bg-slate-50">
-        <div className="text-2xl font-bold pb-4">
+    return <div className="p-10 bg-[#0e121c] mt-6 flex flex-col gap-2 rounded-2xl">
+        <div className="text-2xl font-bold pb-4 text-white/80 max-sm:text-xl">
             Swap Tokens
         </div>
-         <SwapInputRow 
-            amount={baseAmount} 
+         <SwapInputRow
+            amount={baseAmount}
             onAmountChange={(value: string) => {
                 setBaseAmount(value);
             }}
             onSelect={(asset) => {
                 setBaseAsset(asset)
-            }} 
-            selectedToken={baseAsset} 
-            title={"You pay:"} 
-            topBorderEnabled={true} 
-            bottomBorderEnabled={false} 
-            subtitle={<div className="text-slate-500 pt-1 text-sm pl-1 flex">
-                <div className="font-normal pr-1">
+            }}
+            selectedToken={baseAsset}
+            title={"You pay:"}
+            topBorderEnabled={true}
+            bottomBorderEnabled={false}
+            subtitle={<div className="text-white/40 pt-1 text-sm pl-1 flex">
+                <div className="font-normal pr-1 max-sm:text-xs">
                     Current Balance:
                 </div>
-                <div className="font-semibold">
+                <div className="font-semibold max-sm:text-xs">
                     {tokenBalances?.tokens.find(x => x.name === baseAsset.name)?.balance} {baseAsset.name}
                 </div>
             </div>}
         />
-        
+
          <div className="flex justify-center">
             <div onClick={() => {
                 let baseAssetTemp = baseAsset;
                 setBaseAsset(quoteAsset);
                 setQuoteAsset(baseAssetTemp);
-            }} className="cursor-pointer rounded-full w-10 h-10 border absolute mt-[-20px] bg-white flex justify-center pt-2">
+            }} className="cursor-pointer rounded-full w-10 h-10 max-sm:w-8 max-sm:mt-[-16px] max-sm:h-8  absolute mt-[-20px] bg-green-500 flex justify-center pt-2">
                 <SwapIcon />
             </div>
         </div>
- 
+
         <SwapInputRow inputLoading={fetchingQuote} inputDisabled={true} amount={quoteAmount} onSelect={(asset) => {
             setQuoteAsset(asset)
          }} selectedToken={quoteAsset} title={"You receive"}  topBorderEnabled={false} bottomBorderEnabled={true} />
@@ -79,7 +79,7 @@ export function Swap({ publicKey, tokenBalances }: {
             <PrimaryButton onClick={async () => {
                 // trigger swap
                 try {
-                    const res = await axios.post("/api/swap", { 
+                    const res = await axios.post("/api/swap", {
                         quoteResponse
                     })
                     if (res.data.txnId) {
@@ -105,9 +105,10 @@ function SwapInputRow({onSelect, amount, onAmountChange, selectedToken, title, s
     inputDisabled?: boolean;
     inputLoading?: boolean;
 }) {
-    return <div className={`border flex justify-between p-6 ${topBorderEnabled ? "rounded-t-xl" : ""} ${bottomBorderEnabled ? "rounded-b-xl" : ""}`}>
+    return <div className={`border-2
+    border-[#1b243ba7] flex justify-between p-6 ${topBorderEnabled ? "rounded-3xl" : ""} ${bottomBorderEnabled ? "rounded-3xl" : ""}`}>
         <div>
-            <div className="text-xs font-semibold mb-1">
+            <div className="text-xs font-semibold mb-1 text-white/80">
                 {title}
             </div>
             <AssetSelector selectedToken={selectedToken} onSelect={onSelect} />
@@ -116,7 +117,7 @@ function SwapInputRow({onSelect, amount, onAmountChange, selectedToken, title, s
         <div>
             <input disabled={inputDisabled} onChange={(e) => {
                 onAmountChange?.(e.target.value);
-            }} placeholder="0" type="text" className="bg-slate-50 p-6 outline-none text-4xl" dir="rtl" value={inputLoading ? "Loading" : amount}></input>
+            }} placeholder="0" type="text" className="text-white/80 w-full  p-6 outline-none text-3xl bg-transparent max-sm:text-xl" dir="rtl" value={inputLoading ? "Loading" : amount}></input>
         </div>
     </div>
 }
@@ -131,7 +132,7 @@ function AssetSelector({selectedToken, onSelect}: {
             if (selectedToken) {
                 onSelect(selectedToken);
             }
-        }} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        }} id="countries" className=" border focus:ring-0 right-0 after:ring-0 bg-transparent text-white border-[#253150de] border-1  text-sm rounded-lg block w-full p-2.5">
             {SUPPORTED_TOKENS.map(token => <option key={token.name} selected={selectedToken.name == token.name}>
                 {token.name}
             </option>)}
@@ -140,7 +141,7 @@ function AssetSelector({selectedToken, onSelect}: {
 }
 
 function SwapIcon() {
-    return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+    return <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" className="size-6 max-sm:size-4">
     <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
     </svg>
 }

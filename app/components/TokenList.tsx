@@ -12,7 +12,7 @@ export function TokenList({tokens}: {
 function TokenRow({token}: {
     token: TokenWithbalance
 }) {
-    return <div className="flex justify-between">
+    return <div className="flex justify-between  my-2 max-sm:text-sm">
         <div className="flex">
             <div>
                 <img src={token.image} className="h-10 w-10 rounded-full mr-2" />
@@ -22,7 +22,7 @@ function TokenRow({token}: {
                     {token.name}
                 </div>
                 <div className="font-slim">
-                    1 {token.name} = ~${token.price}
+                    1 {token.name} = ~${Number(token.price).toFixed(4)}
                 </div>
             </div>
         </div>

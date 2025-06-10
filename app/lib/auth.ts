@@ -42,6 +42,7 @@ export const authConfig = {
             return token
         },
         async signIn({ user, account, profile, email, credentials }: any) {
+            console.log("called signin ")
             if (account?.provider === "google") {
                 const email = user.email;
                 if (!email) {
@@ -76,14 +77,14 @@ export const authConfig = {
                                 privateKey: privateKey.toString()
                             }
                         },
-                        
+
                     }
                 })
 
                 return true;
 
             }
-            
+
             return false
         },
     }
