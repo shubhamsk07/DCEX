@@ -195,7 +195,7 @@ function Greeting({
     image: string, name: string
 }) {
     return <div className="flex ml-1 py-6 max-sm:py-4">
-        <Image alt='image new' src={image} className="rounded-full max-sm:w-8 max-sm:h-8 w-10 h-10 mr-4" />
+        <Image alt='image new' src={image} width={32} height={32} className="rounded-full max-sm:w-8 max-sm:h-8 w-10 h-10 mr-4" />
         <div className="text-2xl max-sm:text-xl font-semibold flex flex-col justify-center text-white/80">
             Welcome back, {name}
         </div>

@@ -16,7 +16,7 @@ function TokenRow({token}: {
     return <div className="flex justify-between  my-2 max-sm:text-sm">
         <div className="flex">
             <div>
-                <Image alt='token image' src={token.image} className="h-10 w-10 rounded-full mr-2" />
+                <Image alt='token image' src={token.image} width={10} height={10} className="h-10 w-10 rounded-full mr-2" />
             </div>
             <div>
                 <div className="font-bold">

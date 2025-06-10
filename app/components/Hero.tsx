@@ -23,12 +23,14 @@ export const Hero = () => {
             <Image
   src="/full.svg"
   width={300}
+  height={300}
   className="absolute top-56 left-64 max-sm:left-60 z-0 opacity-10"
   alt="full"
 />
 <Image
   src="/full.svg"
   width={300}
+  height={300}
   className="absolute top-56 left-64 max-sm:left-4 z-0 blur-2xl"
   alt="full"
 />
@@ -36,12 +38,14 @@ export const Hero = () => {
 <Image
   src="/full.svg"
   width={300}
+  height={300}
   className="absolute top-56 right-64 max-sm:right-4 z-0 opacity-10"
   alt="full"
 />
 <Image
   src="/full.svg"
   width={300}
+  height={300}
   className="absolute top-56 right-64 max-sm:right-4 z-0 blur-2xl"
   alt="full"
 />
